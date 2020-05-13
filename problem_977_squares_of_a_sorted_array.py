@@ -14,9 +14,7 @@ class Solution:
 
         """
         # NOTES:
-        # Take a look at the input. The array is sorted so the ends will be
-        # a higher value than the middle.
-        # So use the pointers at each end to collect the larger values.
+
 
 
 
@@ -38,6 +36,10 @@ class Solution:
 
 
         # two pointer method?:
+
+        # Take a look at the input. The array is sorted so the ends will be
+        # a higher value than the middle.
+        # So use the pointers at each end to collect the larger values.
         # set pointers
         left = 0 
         right = len(A) - 1
@@ -47,8 +49,14 @@ class Solution:
         sq = [val*val for val in A]
         # sort the values in non-descending order
         while left <= right:
+            # add the highest value first
             if sq[left] > sq[right]:
                 sq_lst.append(sq[left])
+                # move to the next number
+                left += 1
+            else:
+                sq_lst.append(sq_lst[right])
+                right -= 1
 
 
 
